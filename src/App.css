@@ -19,3 +19,36 @@ h1, h2, h3 {
   align-items: center; }
 
 
+
+
+
+
+
+.carouSlider {
+  padding-bottom: 80px; }
+
+.carousel-item {
+  position: relative;
+  height: 675px;
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2); }
+
+.boxes img {
+  margin-top: -110px; }
+
+.newsletter {
+  background: #00d2ff;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #928DAB, #00d2ff);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #928DAB, #00d2ff);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding-top: 100px; }

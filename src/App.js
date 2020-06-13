@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter } from "react-router-dom";
-import NavbarFixed from './components/Navbar';
-import Footer from './components/Footer';
+import MainComponent from './components/MainComponent'
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <NavbarFixed />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className='App'>
+        <MainComponent />
+      </div>
+    </BrowserRouter>
   );
 }
 
