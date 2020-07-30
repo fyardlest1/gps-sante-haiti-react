@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Card,
   CardImg,
@@ -6,61 +6,31 @@ import {
   CardTitle,
 } from "reactstrap";
 
-class Directory extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         selectedHospital: null
-    //     };
-    // }
+function RenderDirectoryItem({ hospital, onClick }) {
+  return (
+    <Card onClick={() => onClick(hospital.id)}>
+      <CardImg width='100%' src={hospital.image} alt={hospital.name} />
+      <CardImgOverlay>
+        <CardTitle>{hospital.name}</CardTitle>
+      </CardImgOverlay>
+    </Card>
+  );
+}
 
-    // // Event handler for selected hospital
-    // onSelectHospital(hospital) {
-    //     this.setState({selectedHospital: hospital});
-    // }
-
-    // renderSelectedHospital(hospital) {
-    //     if(hospital) {
-    //         return (
-    //           <Card>
-    //             <CardImg top src={hospital.image} alt={hospital.name} />
-    //             <CardBody>
-    //               <CardTitle>{hospital.name}</CardTitle>
-    //               <CardText>{hospital.description}</CardText>
-    //             </CardBody>
-    //           </Card>
-    //         );            
-    //     }
-    // }
-
-    render() {
-        const directory = this.props.hospitals.map( hospital => {
-            return (
-              <div key={hospital.id} className='col-md-5 m1'>
-                <Card onClick={() => this.props.onClick(hospital.id)}>
-                  <CardImg top src={hospital.image} alt={hospital.name} />
-                  <CardImgOverlay>
-                    <CardTitle>{hospital.name}</CardTitle>
-                  </CardImgOverlay>
-                </Card>
-              </div>
-            );
-        });
-
+const Directory = (props) => {
+    const directory = props.hospitals.map( hospital => {
         return (
-          <div className='container'>
-            <div className='row'>{directory}</div>
-            {/* <HospitalInfo hospital={this.state.selectedHospital} /> */}
-            {/* <div>
-                    <div className="row">
-                        <div className="col-md-5 m-1">
-                            {this.renderSelectedHospital(this.state.selectedHospital)}
-                        </div>
-                    </div>
-                </div> */}
+          <div key={hospital.id} className='col-md-5 m1'>
+            <RenderDirectoryItem hospital={hospital} onClick={props.onClick} />
           </div>
         );
-    }
+    });
+
+    return (
+        <div className='container'>
+            <div className='row'>{directory}</div>
+        </div>
+    );
 }
 
 export default Directory;

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import NavbarFixed from './Navbar';
+import Footer from './Footer';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import Directory from './DirectoryComponent';
 import HospitalInfo from "./HospitalInfoComponent";
@@ -21,11 +23,7 @@ class Main extends Component {
     render() {
         return (
           <div>
-            <Navbar dark color='primary'>
-              <div className='container'>
-                <NavbarBrand href='/'>NuCamp</NavbarBrand>
-              </div>
-            </Navbar>
+            <NavbarFixed />
             <Directory
               hospitals={this.state.hospitals}
               onClick={(hospitalId) => this.onSelectHospital(hospitalId)}
@@ -37,6 +35,7 @@ class Main extends Component {
                 )[0]
               }
             />
+            <Footer />
           </div>
         );
     };
