@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import NavbarFixed from './Navbar';
+import Home from "./HomeComponent";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Footer from './Footer';
-import { Navbar, NavbarBrand } from 'reactstrap';
 import Directory from './DirectoryComponent';
 import HospitalInfo from "./HospitalInfoComponent";
 import { HOSPITALS } from "../shared/hospitals";
@@ -11,30 +12,22 @@ class Main extends Component {
         super(props);
         this.state = {
           hospitals: HOSPITALS,
-          selectedHospital: null,
         };
     }
 
-    // Event handler for selected hospital
-    onSelectHospital(hospitalId) {
-        this.setState({selectedHospital: hospitalId});
-    }
-
     render() {
+
+      const HomePage = () => {
+        return <Home />;
+      };
+
         return (
           <div>
             <NavbarFixed />
-            <Directory
-              hospitals={this.state.hospitals}
-              onClick={(hospitalId) => this.onSelectHospital(hospitalId)}
-            />
-            <HospitalInfo
-              hospital={
-                this.state.hospitals.filter(
-                  (campsite) => campsite.id === this.state.selectedHospital
-                )[0]
-              }
-            />
+            <Switch>
+              <Route path='/home' component={HomePage} />
+              <Route exact path='/directory' render={() => <Directory hospitals={this.state.hospitals} />}  />
+            </Switch>
             <Footer />
           </div>
         );

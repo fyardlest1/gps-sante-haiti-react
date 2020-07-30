@@ -32,7 +32,7 @@ const items = [
   },
 ];
 
-const HomeComponent = (props) => {
+const Home = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -151,4 +151,4 @@ const HomeComponent = (props) => {
   );
 }
 
-export default HomeComponent;
+export default Home;

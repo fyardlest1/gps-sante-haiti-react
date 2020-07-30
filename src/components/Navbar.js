@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Collapse, Navbar, NavbarBrand, Nav, NavbarToggler, NavItem, NavLink} from 'reactstrap';
+import { Collapse, Navbar, NavbarBrand, Nav, NavbarToggler, NavItem } from 'reactstrap';
+import { NavLink } from "react-router-dom";
 
 class NavbarFixed extends Component {
     constructor(props) {
@@ -43,6 +44,12 @@ class NavbarFixed extends Component {
                     </NavItem>
 
                     <NavItem>
+                      <NavLink className='nav-link' to='/directory'>
+                        Directory
+                      </NavLink>
+                    </NavItem>
+
+                    <NavItem>
                       <NavLink className='nav-link' to='/about'>
                         About
                       </NavLink>
@@ -61,7 +68,7 @@ class NavbarFixed extends Component {
                     </NavItem>
 
                     <NavItem>
-                      <NavLink className='nav-link' to='/contactus'>
+                      <NavLink className='nav-link' to='/login'>
                         Log In
                       </NavLink>
                     </NavItem>
