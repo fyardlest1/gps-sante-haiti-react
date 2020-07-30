@@ -3,24 +3,21 @@ import {
   Card,
   CardImg,
   CardImgOverlay,
-  CardText,
-  CardBody,
   CardTitle,
 } from "reactstrap";
-import HospitalInfo from './HospitalInfoComponent';
 
 class Directory extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            selectedHospital: null
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         selectedHospital: null
+    //     };
+    // }
 
-    // Event hendler for selected hospital
-    onSelectHospital(hospital) {
-        this.setState({selectedHospital: hospital});
-    }
+    // // Event handler for selected hospital
+    // onSelectHospital(hospital) {
+    //     this.setState({selectedHospital: hospital});
+    // }
 
     // renderSelectedHospital(hospital) {
     //     if(hospital) {
@@ -40,7 +37,7 @@ class Directory extends Component {
         const directory = this.props.hospitals.map( hospital => {
             return (
               <div key={hospital.id} className='col-md-5 m1'>
-                <Card onClick={() => this.onSelectHospital(hospital)}>
+                <Card onClick={() => this.props.onClick(hospital.id)}>
                   <CardImg top src={hospital.image} alt={hospital.name} />
                   <CardImgOverlay>
                     <CardTitle>{hospital.name}</CardTitle>
@@ -53,7 +50,7 @@ class Directory extends Component {
         return (
           <div className='container'>
             <div className='row'>{directory}</div>
-            <HospitalInfo hospital={this.state.selectedHospital} />
+            {/* <HospitalInfo hospital={this.state.selectedHospital} /> */}
             {/* <div>
                     <div className="row">
                         <div className="col-md-5 m-1">

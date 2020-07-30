@@ -38,9 +38,11 @@ class HospitalInfo extends Component {
     render() {
         if(this.props.hospital) {
             return (
-                <div className='row'>
-                    {this.renderHospital(this.props.hospital)}
-                    {this.renderComments(this.props.hospital.comments)}
+                <div className='container'>
+                    <div className='row'>
+                        {this.renderHospital(this.props.hospital)}
+                        {this.renderComments(this.props.hospital.comments)}
+                    </div>
                 </div>
             );
         }

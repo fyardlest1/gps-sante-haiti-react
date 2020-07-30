@@ -1,26 +1,47 @@
 import React, { Component } from 'react';
-import NavbarFixed from './Navbar';
-import Directory from "./DirectoryComponent";
-import Footer from './Footer';
-import HomeComponent from './HomeComponent';
-//import About from './AboutComponent';
-//import Services from './ServicesComponent';
-import Contact from './ContactComponent';
-//import Add from './AddComponent';
-//import Shop from './ShopComponent';
-//import SigninInComponent from './SigninInComponent';
-import PasswordResetComponent from './PasswordResetComponent'
-import "../App.css";
+import { Navbar, NavbarBrand } from 'reactstrap';
+import Directory from './DirectoryComponent';
+import HospitalInfo from "./HospitalInfoComponent";
+import { HOSPITALS } from "../shared/hospitals";
 
+class Main extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          hospitals: HOSPITALS,
+          selectedHospital: null,
+        };
+    }
 
-class MainComponent extends Component {
+    // Event handler for selected hospital
+    onSelectHospital(hospitalId) {
+        this.setState({selectedHospital: hospitalId});
+    }
+
     render() {
         return (
-          <div className='App'>
-            
+          <div>
+            <Navbar dark color='primary'>
+              <div className='container'>
+                <NavbarBrand href='/'>NuCamp</NavbarBrand>
+              </div>
+            </Navbar>
+            <Directory
+              hospitals={this.state.hospitals}
+              onClick={(hospitalId) => this.onSelectHospital(hospitalId)}
+            />
+            <HospitalInfo
+              hospital={
+                this.state.hospitals.filter(
+                  (campsite) => campsite.id === this.state.selectedHospital
+                )[0]
+              }
+            />
           </div>
         );
-    }
+    };
 }
 
-export default MainComponent;
+export default Main;
+
+
