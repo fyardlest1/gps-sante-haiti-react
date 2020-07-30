@@ -4,8 +4,10 @@ import {
   CardImg,
   CardText,
   CardBody,
-  CardTitle,
+  Breadcrumb,
+  BreadcrumbItem,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 
 function RenderHospital({hospital}) {
@@ -14,7 +16,6 @@ function RenderHospital({hospital}) {
             <Card>
                 <CardImg top src={hospital.image} alt={hospital.name} />
                 <CardBody>
-                    <CardTitle>{hospital.name}</CardTitle>
                     <CardText>{hospital.description}</CardText>
                 </CardBody>
             </Card>
@@ -47,6 +48,16 @@ const HospitalInfo = (props) => {
     if(props.hospital) {
         return (
             <div className='container'>
+                <div className="row">
+                    <div className="col">
+                        <Breadcrumb>
+                            <BreadcrumbItem><Link to="/directory">Home</Link></BreadcrumbItem>
+                            <BreadcrumbItem active> {props.hospital.name} </BreadcrumbItem>
+                        </Breadcrumb>
+                        <h2> {props.hospital.name} </h2>
+                        <hr />
+                    </div>
+                </div>
                 <div className='row'>
                     <RenderHospital hospital={props.hospital} />
                     <RenderComments comments={props.comments} />

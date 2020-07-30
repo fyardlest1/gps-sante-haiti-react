@@ -1,10 +1,19 @@
 import React from 'react';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+} from "reactstrap";
+import { Link } from 'react-router-dom';
 
 const Contact = (props) => {
         return (
             <React.Fragment>
                 <section id="contactSection">
                     <div className="container">
+                        <Breadcrumb>
+                            <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                            <BreadcrumbItem active>Contact Us</BreadcrumbItem>
+                        </Breadcrumb>
                         <div className="row">
                         {/* CONTACT FORM SECTION */}
                         <div className="col-lg-8 py-3">
