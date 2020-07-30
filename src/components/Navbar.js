@@ -45,7 +45,7 @@ class NavbarFixed extends Component {
 
                     <NavItem>
                       <NavLink className='nav-link' to='/directory'>
-                        Directory
+                        Hospital
                       </NavLink>
                     </NavItem>
 

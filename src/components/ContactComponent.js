@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ContactComponent extends Component {
-    render() {
+const Contact = (props) => {
         return (
             <React.Fragment>
                 <section id="contactSection">
@@ -123,9 +122,7 @@ class ContactComponent extends Component {
                     </div>
                 </section>*/}
             </React.Fragment>
-
         )
     }
-}
 
-export default ContactComponent;
+export default Contact;
