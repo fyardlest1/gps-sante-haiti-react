@@ -10,8 +10,8 @@ import "typeface-tangerine";
 import "typeface-caveat";
 import "typeface-dancing-script";
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>

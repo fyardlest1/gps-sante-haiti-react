@@ -5,14 +5,17 @@ import {
   CardImgOverlay,
   CardTitle,
 } from "reactstrap";
+import { Link } from 'react-router-dom';
 
-function RenderDirectoryItem({ hospital}) {
+function RenderDirectoryItem({ hospital }) {
   return (
     <Card>
-      <CardImg width='100%' src={hospital.image} alt={hospital.name} />
-      <CardImgOverlay>
-        <CardTitle>{hospital.name}</CardTitle>
-      </CardImgOverlay>
+      <Link to={`/directory/${hospital.id}`}>
+        <CardImg width='100%' src={hospital.image} alt={hospital.name} />
+        <CardImgOverlay>
+          <CardTitle>{hospital.name}</CardTitle>
+        </CardImgOverlay>
+      </Link>
     </Card>
   );
 }

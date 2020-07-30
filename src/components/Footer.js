@@ -15,7 +15,7 @@ const Footer = () => {
                         <h6 className="text-uppercase font-weight-bold">Site Map</h6>
                         <ul className="list-unstyled">
                             <li><Link to='/home'>Home</Link></li>
-                            <li><Link to='/directory'>Directory</Link></li>
+                            <li><Link to='/directory'>Hospital</Link></li>
                             <li><Link to='/aboutus'>About</Link></li>
                             <li><Link to='/services'>Services</Link></li>
                             <li><Link to='/contactus'>Contact</Link></li>

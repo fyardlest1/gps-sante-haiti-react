@@ -3,6 +3,7 @@ import NavbarFixed from './Navbar';
 import Home from "./HomeComponent";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Directory from './DirectoryComponent';
+import HospitalInfo from "./HospitalInfoComponent";
 import Contact from "./ContactComponent";
 import SignIn from './SigninInComponent';
 import Footer from "./Footer";
@@ -41,12 +42,24 @@ class Main extends Component {
           );
       };
 
+      const HospitalWithId = ({match}) => {
+            return (
+                <HospitalInfo 
+                    hospital={this.state.hospitals.filter(hospital => hospital.id === 
+                      +match.params.hospitalId)[0]}
+                    comments={this.state.comments.filter(comment => comment.hospitalId === 
+                      +match.params.hospitalId)}
+                />
+            );
+        };
+
         return (
           <div>
             <NavbarFixed />
             <Switch>
               <Route path='/home' component={HomePage} />
               <Route exact path='/directory' render={() => <Directory hospitals={this.state.hospitals} />}  />
+              <Route path='/directory/:hospitalId' component={HospitalWithId} />
               <Route exact path='/contactus' component={Contact} />
               <Route exact path='/login' component={SignIn} />
               <Redirect to='/home' />
