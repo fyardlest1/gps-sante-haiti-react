@@ -7,6 +7,7 @@ import {
   CardBody,
   CardTitle,
 } from "reactstrap";
+import HospitalInfo from './HospitalInfoComponent';
 
 class Directory extends Component {
     constructor(props) {
@@ -21,19 +22,19 @@ class Directory extends Component {
         this.setState({selectedHospital: hospital});
     }
 
-    renderSelectedHospital(hospital) {
-        if(hospital) {
-            return (
-              <Card>
-                <CardImg top src={hospital.image} alt={hospital.name} />
-                <CardBody>
-                  <CardTitle>{hospital.name}</CardTitle>
-                  <CardText>{hospital.description}</CardText>
-                </CardBody>
-              </Card>
-            );            
-        }
-    }
+    // renderSelectedHospital(hospital) {
+    //     if(hospital) {
+    //         return (
+    //           <Card>
+    //             <CardImg top src={hospital.image} alt={hospital.name} />
+    //             <CardBody>
+    //               <CardTitle>{hospital.name}</CardTitle>
+    //               <CardText>{hospital.description}</CardText>
+    //             </CardBody>
+    //           </Card>
+    //         );            
+    //     }
+    // }
 
     render() {
         const directory = this.props.hospitals.map( hospital => {
@@ -50,18 +51,17 @@ class Directory extends Component {
         });
 
         return (
-            <div className='container'>
-                <div className='row'>
-                    {directory}
-                </div>
-                <div>
+          <div className='container'>
+            <div className='row'>{directory}</div>
+            <HospitalInfo hospital={this.state.selectedHospital} />
+            {/* <div>
                     <div className="row">
                         <div className="col-md-5 m-1">
                             {this.renderSelectedHospital(this.state.selectedHospital)}
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> */}
+          </div>
         );
     }
 }
