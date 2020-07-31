@@ -50,7 +50,7 @@ class NavbarFixed extends Component {
                     </NavItem>
 
                     <NavItem>
-                      <NavLink className='nav-link' to='/about'>
+                      <NavLink className='nav-link' to='/aboutus'>
                         About
                       </NavLink>
                     </NavItem>

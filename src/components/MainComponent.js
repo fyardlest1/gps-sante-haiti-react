@@ -3,6 +3,7 @@ import NavbarFixed from './Navbar';
 import Home from "./HomeComponent";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Directory from './DirectoryComponent';
+import About from './AboutComponent';
 import HospitalInfo from "./HospitalInfoComponent";
 import Contact from "./ContactComponent";
 import SignIn from './SigninInComponent';
@@ -60,6 +61,7 @@ class Main extends Component {
               <Route path='/home' component={HomePage} />
               <Route exact path='/directory' render={() => <Directory hospitals={this.state.hospitals} />}  />
               <Route path='/directory/:hospitalId' component={HospitalWithId} />
+              <Route exact path='/aboutus' render={() => <About partners={this.state.partners} />} />
               <Route exact path='/contactus' component={Contact} />
               <Route exact path='/login' component={SignIn} />
               <Redirect to='/home' />
