@@ -3,13 +3,11 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   Button,
-  Form,
-  FormGroup,
   Label,
-  Input,
   Col,
-  FormFeedback,
+  Row,
 } from "reactstrap";
+import { Control, LocalForm } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 
 class Contact extends Component {
@@ -33,72 +31,71 @@ class Contact extends Component {
       },
     };
 
-    this.handleInputChange = this.handleInputChange.bind(this);
+    // this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  validate(firstName, lastName, phoneNum, email) {
+  // validate(firstName, lastName, phoneNum, email) {
 
-        const errors = {
-            firstName: '',
-            lastName: '',
-            phoneNum: '',
-            email: ''
-        };
+  //       const errors = {
+  //           firstName: '',
+  //           lastName: '',
+  //           phoneNum: '',
+  //           email: ''
+  //       };
 
-        if (this.state.touched.firstName) {
-            if (firstName.length < 2) {
-                errors.firstName = 'First name must be at least 2 characters.';
-            } else if (firstName.length > 15) {
-                errors.firstName = 'First name must be 15 or less characters.';
-            }
-        }
+  //       if (this.state.touched.firstName) {
+  //           if (firstName.length < 2) {
+  //               errors.firstName = 'First name must be at least 2 characters.';
+  //           } else if (firstName.length > 15) {
+  //               errors.firstName = 'First name must be 15 or less characters.';
+  //           }
+  //       }
 
-        if (this.state.touched.lastName) {
-            if (lastName.length < 2) {
-                errors.lastName = 'Last name must be at least 2 characters.';
-            } else if (lastName.length > 15) {
-                errors.lastName = 'Last name must be 15 or less characters.';
-            }
-        }
+  //       if (this.state.touched.lastName) {
+  //           if (lastName.length < 2) {
+  //               errors.lastName = 'Last name must be at least 2 characters.';
+  //           } else if (lastName.length > 15) {
+  //               errors.lastName = 'Last name must be 15 or less characters.';
+  //           }
+  //       }
 
-        const reg = /^\d+$/;
-        if (this.state.touched.phoneNum && !reg.test(phoneNum)) {
-            errors.phoneNum = 'The phone number should contain only numbers.';
-        }
+  //       const reg = /^\d+$/;
+  //       if (this.state.touched.phoneNum && !reg.test(phoneNum)) {
+  //           errors.phoneNum = 'The phone number should contain only numbers.';
+  //       }
 
-        if (this.state.touched.email && !email.includes('@')) {
-            errors.email = 'Email should contain a @';
-        }
+  //       if (this.state.touched.email && !email.includes('@')) {
+  //           errors.email = 'Email should contain a @';
+  //       }
 
-        return errors;
-    }
+  //       return errors;
+  //   }
 
-  handleBlur = (field) => () => {
-      this.setState({
-        touched: {...this.state.touched, [field]: true}
-      });
-  }
+  // handleBlur = (field) => () => {
+  //     this.setState({
+  //       touched: {...this.state.touched, [field]: true}
+  //     });
+  // }
 
-  handleInputChange(event) {
-    const target = event.target;
-    const name = target.name;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+  // handleInputChange(event) {
+  //   const target = event.target;
+  //   const name = target.name;
+  //   const value = target.type === "checkbox" ? target.checked : target.value;
 
-    this.setState({
-      [name]: value,
-    });
-  }
+  //   this.setState({
+  //     [name]: value,
+  //   });
+  // }
 
-  handleSubmit(event) {
-    console.log("Current state is: " + JSON.stringify(this.state));
-    alert("Current state is: " + JSON.stringify(this.state));
-    event.preventDefault();
+  handleSubmit(values) {
+    console.log("Current state is: " + JSON.stringify(values));
+    alert("Current state is: " + JSON.stringify(values));
   }
 
   render() {
 
-    const errors = this.validate(this.state.firstName, this.state.lastName, this.state.phoneNum, this.state.email);
+    // const errors = this.validate(this.state.firstName, this.state.lastName, this.state.phoneNum, this.state.email);
 
     return (
       <React.Fragment>
@@ -120,131 +117,139 @@ class Contact extends Component {
                   </p>
                 </div>
                 <div className='col'>
-
-                    {/* ASKING FOR NAME */}
-                  <Form onSubmit={this.handleSubmit}>
-                    <FormGroup row>
+                  {/* ASKING FOR NAME */}
+                  <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+                    <Row className='form-group'>
                       <Label htmlFor='firstName' sm={2}>
-                          First Name
-                        </Label>
+                        First Name
+                      </Label>
                       <Col sm={10}>
-                        <Input type="text" id="firstName" name="firstName"
-                                        placeholder="First Name"
-                                        value={this.state.firstName}
-                                        invalid={errors.firstName}
-                                        onBlur={this.handleBlur("firstName")}
-                                        onChange={this.handleInputChange}/>
-                                        <FormFeedback> {errors.firstName} </FormFeedback>
+                        <Control.text
+                          model='.firstName'
+                          className='form-control'
+                          id='firstName'
+                          name='firstName'
+                          placeholder='First Name'
+                        />
                       </Col>
-                      </FormGroup>
-                      <FormGroup row>
-                          <Label htmlFor='lastName' sm={2}>
-                          Last Name
-                        </Label>
+                    </Row>
+                    <Row className='form-group'>
+                      <Label htmlFor='lastName' sm={2}>
+                        Last Name
+                      </Label>
                       <Col sm={10}>
-                        <Input type="text" id="lastName" name="lastName"
-                                        placeholder="Last Name"
-                                        value={this.state.lastName}
-                                        invalid={errors.lastName}
-                                        onBlur={this.handleBlur("lastName")}
-                                        onChange={this.handleInputChange}/>
-                                        <FormFeedback> {errors.lastName} </FormFeedback>
+                        <Control.text
+                          model='.lastName'
+                          className='form-control'
+                          id='lastName'
+                          name='lastName'
+                          placeholder='Last Name'
+                        />
                       </Col>
-                    </FormGroup>
-                    
+                    </Row>
+
                     {/* ASKING FOR PHONE # */}
-                    <FormGroup row>
+                    <Row className='form-group'>
                       <Label htmlFor='phoneNum' sm={2}>
-                          Phone #
-                        </Label>
+                        Phone #
+                      </Label>
                       <Col sm={10}>
-                            <Input type="tel" id="phoneNum" name="phoneNum"
-                                placeholder="Phone number"
-                                value={this.state.phoneNum}
-                                invalid={errors.phoneNum}
-                                onBlur={this.handleBlur("phoneNum")}
-                                onChange={this.handleInputChange} />
-                                <FormFeedback> {errors.phoneNum} </FormFeedback>
-                     </Col>
-                    </FormGroup>
-                    
+                        <Control.text
+                          model='.phoneNum'
+                          className='form-control'
+                          id='phoneNum'
+                          name='phoneNum'
+                          placeholder='Phone number'
+                        />
+                      </Col>
+                    </Row>
+
                     {/* ASKING FOR EMAIL */}
-                    <FormGroup row>
+                    <Row className='form-group'>
                       <Label htmlFor='email' sm={2}>
                         Your Email
                       </Label>
                       <Col sm={10}>
-                        <Input type="email" id="email" name="email"
-                                        placeholder="Email"
-                                        value={this.state.email}
-                                        invalid={errors.email}
-                                        onBlur={this.handleBlur("email")}
-                                        onChange={this.handleInputChange} />
-                                        <FormFeedback> {errors.email} </FormFeedback>
+                        <Control.text
+                          model='.email'
+                          className='form-control'
+                          id='email'
+                          name='email'
+                          placeholder='Email'
+                        />
                       </Col>
-                    </FormGroup>
+                    </Row>
 
                     {/* SELECTION A SUBJECT */}
-                    <FormGroup row>
-                      <Label htmlFor='subject' sm={2} >
+                    <Row className='form-group'>
+                      <Label htmlFor='subject' sm={2}>
                         Subject
                       </Label>
                       <Col>
-                        <Input type="select" name="subject"
-                                            value={this.state.subject}
-                                            onChange={this.handleInputChange}>
+                        <Control.select
+                          model='.subject'
+                          className='form-control'
+                          name='subject'
+                        >
                           <option>Select ...</option>
                           <option>Informations</option>
                           <option>Pour Ajouter Votre Pub</option>
                           <option>Suggestions</option>
                           <option>Autres</option>
-                        </Input>
+                        </Control.select>
                       </Col>
-                    </FormGroup>
-                    <FormGroup row>
+                    </Row>
+                    <Row className='form-group'>
                       <Col md={{ size: 6, offset: 2 }}>
-                        <FormGroup check>
+                        <div className='form-check'>
                           <Label check>
-                            <Input
-                              type='checkbox'
+                            <Control.checkbox
+                              model='.agree'
+                              className='form-check-input'
                               name='agree'
-                              checked={this.state.agree}
-                              onChange={this.handleInputChange}
                             />{" "}
                             <strong>May we contact you?</strong>
                           </Label>
-                        </FormGroup>
+                        </div>
                       </Col>
                       <Col md={4}>
-                        <Input type='select' name='contactType'
-                            value={this.state.contactType}
-                            onChange={this.handleInputChange}>
+                        <Control.select
+                          model='.contactType'
+                          className='form-control'
+                          name='contactType'
+                        >
                           <option>By Phone</option>
                           <option>By Email</option>
-                        </Input>
+                        </Control.select>
                       </Col>
-                    </FormGroup>
+                    </Row>
 
                     {/* USER MESSAGE */}
-                    <FormGroup row>
-                      <Label htmlFor='feedback' sm={2}> Message </Label>
+                    <Row className='form-group'>
+                      <Label htmlFor='feedback' sm={2}>
+                        {" "}
+                        Message{" "}
+                      </Label>
                       <Col md={10}>
-                        <Input type="textarea" id="feedback" name="feedback"
-                                        rows="7"
-                                        value={this.state.feedback}
-                                        onChange={this.handleInputChange} />
+                        <Control.textarea
+                          model='.feedback'
+                          className='form-control'
+                          id='feedback'
+                          name='feedback'
+                          rows='7'
+                        />
                       </Col>
-                    </FormGroup>
+                    </Row>
 
                     {/* FORM SUBMIT BUTTON */}
-                    <FormGroup row>
-                      <Col md={{size: 10, offset: 2}}>
+                    <Row className='form-group'>
+                      <Col md={{ size: 10, offset: 2 }}>
                         <Button type='submit' color='info'>
                           Submit Form
                         </Button>
                       </Col>
-                    </FormGroup>
-                  </Form>
+                    </Row>
+                  </LocalForm>
                 </div>
               </div>
 
