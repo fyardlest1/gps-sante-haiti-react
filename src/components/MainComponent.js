@@ -1,43 +1,40 @@
 import React, { Component } from 'react';
 import NavbarFixed from './Navbar';
 import Home from "./HomeComponent";
-import { Switch, Route, Redirect } from "react-router-dom";
 import Directory from './DirectoryComponent';
 import About from './AboutComponent';
 import HospitalInfo from "./HospitalInfoComponent";
 import Contact from "./ContactComponent";
-import SignIn from './SigninInComponent';
+import Login from './SigninInComponent';
 import Footer from "./Footer";
 import HomeFoot from "./HomeFootCard";
-import { HOSPITALS } from "../shared/hospitals";
-import { COMMENTS } from "../shared/comments";
-import { PARTNERS } from "../shared/partners";
-import { PROMOTIONS } from "../shared/promotions";
+import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+
+const mapStateToProps = state => {
+  return {
+    hospitals: state.hospitals,
+    comments: state.comments,
+    partners: state.partners,
+    promotions: state.promotions
+  }
+}
 
 class Main extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          hospitals: HOSPITALS,
-          comments: COMMENTS,
-          partners: PARTNERS,
-          promotions: PROMOTIONS,
-        };
-    }
 
     render() {
       const HomePage = () => {
         return (
           <div>
             <Home
-                // hospital={this.state.hospitals.filter(hospital => hospital.featured)[0]}
-                // promotion={this.state.promotions.filter(promotion => promotion.featured)[0]}
-                // partner={this.state.partners.filter(partner => partner.featured)[0]}
+                // hospital={this.props.hospitals.filter(hospital => hospital.featured)[0]}
+                // promotion={this.props.promotions.filter(promotion => promotion.featured)[0]}
+                // partner={this.props.partners.filter(partner => partner.featured)[0]}
             />
             <HomeFoot
-                hospital={this.state.hospitals.filter(hospital => hospital.featured)[0]}
-                promotion={this.state.promotions.filter(promotion => promotion.featured)[0]}
-                partner={this.state.partners.filter(partner => partner.featured)[0]}
+                hospital={this.props.hospitals.filter(hospital => hospital.featured)[0]}
+                promotion={this.props.promotions.filter(promotion => promotion.featured)[0]}
+                partner={this.props.partners.filter(partner => partner.featured)[0]}
             />
             </div>
           );
@@ -46,9 +43,9 @@ class Main extends Component {
       const HospitalWithId = ({match}) => {
             return (
                 <HospitalInfo 
-                    hospital={this.state.hospitals.filter(hospital => hospital.id === 
+                    hospital={this.props.hospitals.filter(hospital => hospital.id === 
                       +match.params.hospitalId)[0]}
-                    comments={this.state.comments.filter(comment => comment.hospitalId === 
+                    comments={this.props.comments.filter(comment => comment.hospitalId === 
                       +match.params.hospitalId)}
                 />
             );
@@ -59,11 +56,11 @@ class Main extends Component {
             <NavbarFixed />
             <Switch>
               <Route path='/home' component={HomePage} />
-              <Route exact path='/directory' render={() => <Directory hospitals={this.state.hospitals} />}  />
+              <Route exact path='/directory' render={() => <Directory hospitals={this.props.hospitals} />}  />
               <Route path='/directory/:hospitalId' component={HospitalWithId} />
-              <Route exact path='/aboutus' render={() => <About partners={this.state.partners} />} />
+              <Route exact path='/aboutus' render={() => <About partners={this.props.partners} />} />
               <Route exact path='/contactus' component={Contact} />
-              <Route exact path='/login' component={SignIn} />
+              <Route exact path='/login' component={Login} />
               <Redirect to='/home' />
             </Switch>
             <Footer />
@@ -72,6 +69,6 @@ class Main extends Component {
     };
 }
 
-export default Main;
+export default withRouter(connect(mapStateToProps)(Main));
 
 

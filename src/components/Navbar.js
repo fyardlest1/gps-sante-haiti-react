@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Collapse, Navbar, NavbarBrand, Nav, NavbarToggler, NavItem } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem } from 'reactstrap';
 import { NavLink } from "react-router-dom";
 
 class NavbarFixed extends Component {
@@ -7,7 +7,7 @@ class NavbarFixed extends Component {
         super(props);
 
         this.state = {
-            isNavOpen: false
+            isNavOpen: false,
         };
 
         this.toggleNav = this.toggleNav.bind(this);
@@ -18,6 +18,8 @@ class NavbarFixed extends Component {
             isNavOpen: !this.state.isNavOpen
         });
     };
+
+     
 
     render() {
         return (
@@ -68,14 +70,14 @@ class NavbarFixed extends Component {
                     </NavItem>
 
                     <NavItem>
-                      <NavLink className='nav-link' to='/login'>
-                        Log In
+                      <NavLink className='nav-link' to='/addyours'>
+                        Ajouter
                       </NavLink>
                     </NavItem>
 
                     <NavItem>
-                      <NavLink className='nav-link' to='/addyours'>
-                        Ajouter
+                      <NavLink className='nav-link' to='/login'>
+                        Login
                       </NavLink>
                     </NavItem>
 
@@ -86,7 +88,7 @@ class NavbarFixed extends Component {
                       </NavLink>
                     </NavItem>
                   </Nav>
-                  <form className='col-md-4 input-group ml-auto'>
+                  <form className='col-md-4 input-group ml-auto navbar-form'>
                     <input
                       type='text'
                       className='form-control d-inline mr-2'

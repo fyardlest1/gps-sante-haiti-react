@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Breadcrumb, BreadcrumbItem} from "reactstrap";
 import { Link } from "react-router-dom";
 
-export class SignIn extends Component {
+export class Login extends Component {
     render() {
         return (
             <section className="container" >
@@ -132,4 +132,4 @@ export class SignIn extends Component {
     }
 }
 
-export default SignIn;
+export default Login;

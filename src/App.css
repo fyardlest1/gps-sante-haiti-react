@@ -25,7 +25,7 @@ h2 {
   opacity: 0.9; 
 }
 
-.navbar .nav-link {
+.navbar .nav-link, .navbar-text {
   font-size: 14px;
   font-weight: bold;
   text-transform: uppercase; 
@@ -75,7 +75,7 @@ h2 {
 
 /* Contact Form Section */
 #signInSection, #resetSection {
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 35px;
 }
 
