@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PasswordResetComponent() {
+function PasswordReset() {
     return (
         <div className="container" id="resetSection">
             <div className="row">
@@ -30,4 +30,4 @@ function PasswordResetComponent() {
     )
 }
 
-export default PasswordResetComponent;
+export default PasswordReset;

@@ -37,8 +37,6 @@ h2 {
   margin-top: 50px;
 }
 
-
-
 .carouSlider {
   padding-bottom: 80px; }
 
@@ -70,6 +68,14 @@ h2 {
   margin-bottom: 50px;
 }
 
+#latestPost h3, #contactSection h3 {
+  color: #ef476f;
+  font-size: 2rem; }
+
+.latestPost, .serviceId, .add-It-Head {
+  font-family: "Caveat", sans-serif;
+  font-size: 1.6rem; }
+
 #contact1 {
   background: #ef476f; }
 
@@ -91,6 +97,32 @@ h2 {
   border-bottom: #ef476f 2px solid;
   padding-bottom: 15px; }
 
+  .sizing {
+  font-size: 14px;
+  text-align: center; }
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center; }
+
+.separator::before, .separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #CEC8FF; }
+
+.separator::before {
+  margin-right: .25em; }
+
+.separator::after {
+  margin-left: .25em; }
+
+Form.formGroup a:hover {
+  text-decoration: none; }
+
+Button #shadow:hover, #shadow:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em); }
 
   .placeHolder {
   font-size: 15px;

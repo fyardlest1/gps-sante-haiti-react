@@ -7,6 +7,7 @@ import HospitalInfo from "./HospitalInfoComponent";
 import Contact from "./ContactComponent";
 import Login from './SigninInComponent';
 import Footer from "./Footer";
+import PasswordReset from './PasswordResetComponent';
 import HomeFoot from "./HomeFootCard";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
@@ -61,6 +62,7 @@ class Main extends Component {
               <Route exact path='/aboutus' render={() => <About partners={this.props.partners} />} />
               <Route exact path='/contactus' component={Contact} />
               <Route exact path='/login' component={Login} />
+              {/* <Route path='/resetpassword' component={PasswordReset} /> */}
               <Redirect to='/home' />
             </Switch>
             <Footer />

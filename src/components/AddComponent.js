@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class AddComponent extends Component {
+class AddLocation extends Component {
     render() {
         return(
 
@@ -8,4 +8,4 @@ class AddComponent extends Component {
     }
 }
 
-export default AddComponent;
+export default AddLocation;
