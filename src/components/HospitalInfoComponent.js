@@ -53,8 +53,13 @@ class CommentForm extends Component {
   }
 
   handleSubmit(values) {
-    console.log('Current state is: ' + JSON.stringify(values));
-    alert('Current state is: ' + JSON.stringify(values));
+    this.toggleModal();
+    this.props.addComment(
+      this.props.campsiteId,
+      values.rating,
+      values.author,
+      values.text
+    );
   }
 
   // Set Modal Module
@@ -90,11 +95,11 @@ class CommentForm extends Component {
                     model='.rating'
                     className='form-control'
                   >
-                    <option value='1'>1</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                   </Control.select>
                 </Col>
               </Row>
@@ -149,7 +154,7 @@ class CommentForm extends Component {
   }
 }
 
-function RenderComments({ comments }) {
+function RenderComments({ comments, addComment, campsiteId }) {
   if (comments) {
     return (
       <div className='col-md-5 m-1'>
@@ -168,7 +173,7 @@ function RenderComments({ comments }) {
             </p>{" "}
           </div>
         ))}
-        <CommentForm />
+        <CommentForm campsiteId={campsiteId} addComment={addComment} />
       </div>
     );
   }
@@ -178,22 +183,31 @@ function RenderComments({ comments }) {
 const HospitalInfo = (props) => {
     if(props.hospital) {
         return (
-            <div className='container'>
-                <div className="row">
-                    <div className="col">
-                        <Breadcrumb>
-                            <BreadcrumbItem><Link to="/directory">Home</Link></BreadcrumbItem>
-                            <BreadcrumbItem active> {props.hospital.name} </BreadcrumbItem>
-                        </Breadcrumb>
-                        <h2> {props.hospital.name} </h2>
-                        <hr />
-                    </div>
-                </div>
-                <div className='row'>
-                    <RenderHospital hospital={props.hospital} />
-                    <RenderComments comments={props.comments} />
-                </div>
+          <div className='container'>
+            <div className='row'>
+              <div className='col'>
+                <Breadcrumb>
+                  <BreadcrumbItem>
+                    <Link to='/directory'>Home</Link>
+                  </BreadcrumbItem>
+                  <BreadcrumbItem active>
+                    {" "}
+                    {props.hospital.name}{" "}
+                  </BreadcrumbItem>
+                </Breadcrumb>
+                <h2> {props.hospital.name} </h2>
+                <hr />
+              </div>
             </div>
+            <div className='row'>
+              <RenderHospital hospital={props.hospital} />
+              <RenderComments
+                comments={props.comments}
+                addComment={props.addComment}
+                campsiteId={props.campsite.id}
+              />
+            </div>
+          </div>
         );
     }
     return <div />

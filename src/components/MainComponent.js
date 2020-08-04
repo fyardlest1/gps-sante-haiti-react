@@ -11,6 +11,7 @@ import PasswordReset from './PasswordResetComponent';
 import HomeFoot from "./HomeFootCard";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { addComment } from "../redux/ActionCreators";
 
 const mapStateToProps = state => {
   return {
@@ -20,6 +21,11 @@ const mapStateToProps = state => {
     promotions: state.promotions
   }
 }
+
+const mapDispatchToProps = {
+  addComment: (campsiteId, rating, author, text) =>
+    addComment(campsiteId, rating, author, text),
+};
 
 class Main extends Component {
 
@@ -48,6 +54,7 @@ class Main extends Component {
                       +match.params.hospitalId)[0]}
                     comments={this.props.comments.filter(comment => comment.hospitalId === 
                       +match.params.hospitalId)}
+                      addComment={this.props.addComment}
                 />
             );
         };
@@ -71,4 +78,4 @@ class Main extends Component {
     };
 }
 
-export default withRouter(connect(mapStateToProps)(Main));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
