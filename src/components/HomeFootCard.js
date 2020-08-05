@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
+import { Loading } from "./LoadingComponent";
 
 function RenderCard({ item }) {
   return (
@@ -18,7 +19,11 @@ function HomeFoot(props) {
     <div className='container'>
       <div className='row'>
         <div className='col-md m-1'>
-          <RenderCard item={props.hospital} />
+          <RenderCard
+            item={props.hospital}
+            isLoading={props.hospitalsLoading}
+            errMess={props.hospitalsErrMess}
+          />
         </div>
         <div className='col-md m-1'>
           <RenderCard item={props.promotion} />

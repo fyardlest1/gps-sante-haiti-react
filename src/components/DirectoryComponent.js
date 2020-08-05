@@ -8,6 +8,7 @@ import {
   BreadcrumbItem,
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import { Loading } from "./LoadingComponent";
 
 function RenderDirectoryItem({ hospital }) {
   return (
@@ -23,13 +24,35 @@ function RenderDirectoryItem({ hospital }) {
 }
 
 const Directory = (props) => {
-    const directory = props.hospitals.map( hospital => {
+    const directory = props.hospitals.hospitals.map( hospital => {
         return (
           <div key={hospital.id} className='col-md-5 m1'>
             <RenderDirectoryItem hospital={hospital} />
           </div>
         );
     });
+
+    if (props.hospitals.isLoading) {
+      return (
+        <div className='container'>
+          <div className='row'>
+            <Loading />
+          </div>
+        </div>
+      );
+    }
+
+    if (props.hospitals.errMess) {
+      return (
+        <div className='container'>
+          <div className='row'>
+            <div className='col'>
+              <h4>{props.hospital.errMess}</h4>
+            </div>
+          </div>
+        </div>
+      );
+    }
 
     return (
         <div className='container'>

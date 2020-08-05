@@ -6,11 +6,19 @@ import {
   CarouselIndicators,
   CarouselCaption,
   Card,
-  CardBody, CardImg, CardTitle, CardText
+  CardBody, CardImg, CardTitle, CardText, Button
 } from "reactstrap";
+import { Loading } from "./LoadingComponent";
 
 // Rendering Card in the home page
-function RenderCard({ item }) {
+function RenderCard({ item, isLoading, errMess }) {
+  if (isLoading) {
+    return <Loading />;
+  }
+  if (errMess) {
+    return <h4> {errMess} </h4>
+  }
+
   return (
     <Card>
       <CardImg src={item.image} alt={item.name} />
@@ -28,7 +36,11 @@ export function HomeFoot(props) {
     <div className='container'>
       <div className='row'>
         <div className='col-md m-1'>
-          <RenderCard item={props.hospital} />
+          <RenderCard
+            item={props.hospital}
+            isLoading={props.hospitalsLoading}
+            errMess={props.hospitalsErrMess}
+          />
         </div>
         <div className='col-md m-1'>
           <RenderCard item={props.promotion} />
@@ -127,7 +139,7 @@ const Home = (props) => {
           <div className='col-md-3 mb-3'>
             <Card className='border-primary text-center text-white'>
               <CardBody className='card-body'>
-                <img
+                <CardImg
                   src='/assets/images/person1.jpg'
                   width='60%'
                   className='rounded-circle'
@@ -137,16 +149,14 @@ const Home = (props) => {
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Repudiandae, dolore.
                 </p>
-                <a href='#' className='btn btn-dark mx-auto'>
-                  En savoir Plus
-                </a>
+                <Button className='btn-dark mx-auto'>En Savoir Plus</Button>
               </CardBody>
             </Card>
           </div>
           <div className='col-md-3 mb-3'>
             <Card className='card bg-info text-center text-white'>
               <CardBody className='card-body'>
-                <img
+                <CardImg
                   src='/assets/images/person1.jpg'
                   width='60%'
                   className='rounded-circle'
@@ -156,16 +166,14 @@ const Home = (props) => {
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Repudiandae, dolore.
                 </p>
-                <a href='#' className='btn btn-light mx-auto'>
-                  En savoir Plus
-                </a>
+                <Button className='btn-light mx-auto'>En savoir Plus</Button>
               </CardBody>
             </Card>
           </div>
           <div className='col-md-3 mb-3'>
             <Card className='card border-primary text-center text-white'>
               <CardBody className='card-body'>
-                <img
+                <CardImg
                   src='/assets/images/person1.jpg'
                   width='60%'
                   className='rounded-circle'
@@ -175,16 +183,14 @@ const Home = (props) => {
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Repudiandae, dolore.
                 </p>
-                <a href='#' className='btn btn-dark mx-auto'>
-                  En savoir Plus
-                </a>
+                <Button className='btn-dark mx-auto'>En savoir Plus</Button>
               </CardBody>
             </Card>
           </div>
           <div className='col-md-3 mb-3'>
             <Card className='card bg-info text-center text-white'>
               <CardBody className='card-body'>
-                <img
+                <CardImg
                   src='/assets/images/person1.jpg'
                   width='60%'
                   className='rounded-circle'
@@ -194,9 +200,7 @@ const Home = (props) => {
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Repudiandae, dolore.
                 </p>
-                <a href='#' className='btn btn-light mx-auto'>
-                  En savoir Plus
-                </a>
+                <Button className='btn-light mx-auto'>En savoir Plus</Button>
               </CardBody>
             </Card>
           </div>
@@ -231,7 +235,7 @@ const Home = (props) => {
           </div>
         </div>
       </div>
-      <div >{HomeFoot}</div>
+      <div>{HomeFoot}</div>
     </React.Fragment>
   );
 }
