@@ -1,7 +1,7 @@
 export const PROMOTIONS = [
          {
            id: 0,
-           name: "Mountain Adventure",
+           name: "Let's Kill Virus",
            image: "/assets/images/shopprotect1.jpg",
            featured: true,
            description:

@@ -4,7 +4,7 @@ export const Hospitals = (
   state = {
     isLoading: true,
     errMess: null,
-    campsites: [],
+    hospitals: [],
   },
   action
 ) => {
@@ -14,10 +14,10 @@ export const Hospitals = (
         ...state,
         isLoading: false,
         errMess: null,
-        campsites: action.payload,
+        hospitals: action.payload,
       };
     case ActionTypes.HOSPITALS_LOADING:
-      return { ...state, isLoading: true, errMess: null, campsites: [] };
+      return { ...state, isLoading: true, errMess: null, hospitals: [] };
     case ActionTypes.HOSPITALS_FAILED:
       return { ...state, isLoading: false, errMess: action.payload };
     default:

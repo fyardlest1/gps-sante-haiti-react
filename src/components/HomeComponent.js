@@ -30,28 +30,28 @@ function RenderCard({ item, isLoading, errMess }) {
   );
 }
 
-// Export the HomeFoo (export name)
-export function HomeFoot(props) {
-  return (
-    <div className='container'>
-      <div className='row'>
-        <div className='col-md m-1'>
-          <RenderCard
-            item={props.hospital}
-            isLoading={props.hospitalsLoading}
-            errMess={props.hospitalsErrMess}
-          />
-        </div>
-        <div className='col-md m-1'>
-          <RenderCard item={props.promotion} />
-        </div>
-        <div className='col-md m-1'>
-          <RenderCard item={props.partner} />
-        </div>
-      </div>
-    </div>
-  );
-}
+// Export the HomeFoot (export name)
+// function HomeFoot(props) {
+//   return (
+//     <div className='container'>
+//       <div className='row'>
+//         <div className='col-md m-1'>
+//           <RenderCard
+//             item={props.hospital}
+//             isLoading={props.hospitalsLoading}
+//             errMess={props.hospitalsErrMess}
+//           />
+//         </div>
+//         <div className='col-md m-1'>
+//           <RenderCard item={props.promotion} />
+//         </div>
+//         <div className='col-md m-1'>
+//           <RenderCard item={props.partner} />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 
 
 const items = [
@@ -235,7 +235,23 @@ const Home = (props) => {
           </div>
         </div>
       </div>
-      <div>{HomeFoot}</div>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-md m-1'>
+            <RenderCard
+              item={props.hospital}
+              isLoading={props.hospitalsLoading}
+              errMess={props.hospitalsErrMess}
+            />
+          </div>
+          <div className='col-md m-1'>
+            <RenderCard item={props.promotion} />
+          </div>
+          <div className='col-md m-1'>
+            <RenderCard item={props.partner} />
+          </div>
+        </div>
+      </div>
     </React.Fragment>
   );
 }

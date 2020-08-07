@@ -1,7 +1,7 @@
 export const PARTNERS = [
          {
            id: 0,
-           name: "Bootstrap Outfitters",
+           name: "",
            image: "/assets/images/portrait3.jpg",
            featured: false,
            description:
@@ -25,7 +25,7 @@ export const PARTNERS = [
          },
          {
            id: 3,
-           name: "Node Outdoor Apparel",
+           name: "Gels to protect yourself",
            image: "/assets/images/sanitazr.jpg",
            featured: true,
            description:

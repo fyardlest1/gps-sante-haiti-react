@@ -2,7 +2,7 @@ export const HOSPITALS = [
          {
            id: 0,
            name: "Good Care Of Your Family",
-           image: "assets/images/baby-1150109.jpg",
+           image: "/assets/images/baby-1150109.jpg",
            elevation: 1233,
            featured: false,
            description:
@@ -11,7 +11,7 @@ export const HOSPITALS = [
          {
            id: 1,
            name: "Your Health Is Our Priority",
-           image: "assets/images/smiling_8930.jpg",
+           image: "/assets/images/smiling_8930.jpg",
            elevation: 877,
            featured: false,
            description:
@@ -20,7 +20,7 @@ export const HOSPITALS = [
          {
            id: 2,
            name: "Our Specialists Are Here For You",
-           image: "assets/images/portrait4.jpg",
+           image: "/assets/images/portrait4.jpg",
            elevation: 2901,
            featured: false,
            description:
@@ -29,7 +29,7 @@ export const HOSPITALS = [
          {
            id: 3,
            name: "Your Safety Come First",
-           image: "assets/images/shopprotect4.jpg",
+           image: "/assets/images/shopprotect4.jpg",
            elevation: 42,
            featured: true,
            description:

@@ -7,7 +7,6 @@ import HospitalInfo from "./HospitalInfoComponent";
 import Contact from "./ContactComponent";
 import Login from './SigninInComponent';
 import Footer from "./Footer";
-//import HomeFoot from "./HomeFootCard";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { actions } from "react-redux-form";
