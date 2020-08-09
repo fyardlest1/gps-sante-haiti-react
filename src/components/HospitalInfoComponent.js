@@ -56,7 +56,7 @@ class CommentForm extends Component {
 
   handleSubmit(values) {
     this.toggleModal();
-    this.props.addComment(
+    this.props.postComment(
       this.props.hospitalId,
       values.rating,
       values.author,
@@ -156,7 +156,7 @@ class CommentForm extends Component {
   }
 }
 
-function RenderComments({ comments, addComment, hospitalId }) {
+function RenderComments({ comments, postComment, hospitalId }) {
   if (comments) {
     return (
       <React.Fragment>
@@ -177,7 +177,7 @@ function RenderComments({ comments, addComment, hospitalId }) {
               </div>
             );
           })}
-          <CommentForm hospitalId={hospitalId} addComment={addComment} />
+          <CommentForm hospitalId={hospitalId} postComment={postComment} />
         </div>
       </React.Fragment>
     );
@@ -230,7 +230,7 @@ function HospitalInfo(props) {
               <RenderHospital hospital={props.hospital} />
               <RenderComments
                 comments={props.comments}
-                addComment={props.addComment}
+                postComment={props.postComment}
                 hospitalId={props.hospital.id}
               />
             </div>
