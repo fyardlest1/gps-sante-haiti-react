@@ -48,7 +48,7 @@ const Directory = (props) => {
         <div className='container'>
           <div className='row'>
             <div className='col'>
-              <h4>{props.hospital.errMess}</h4>
+              <h4>{props.hospitals.errMess}</h4>
             </div>
           </div>
         </div>
