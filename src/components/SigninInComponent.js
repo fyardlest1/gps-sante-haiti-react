@@ -133,7 +133,7 @@ export class Login extends Component {
                              >
                                Sign In
                              </Button>
-                             <Link className='form-text text-center text-primary font-weight-bold'>
+                             <Link to='/resetpassword' className='form-text text-center text-primary font-weight-bold'>
                                Forgot your password?
                              </Link>
                              <div className='separator text-muted my-4'>
@@ -274,7 +274,7 @@ export class Login extends Component {
                                </Col>
                              </Row>
                              <p className='form-text text-center sizing'>
-                               By clicking Sign In, you agree to our
+                               By clicking Sign Up, you agree to our
                                <Link className='text-primary font-weight-bold'>
                                  Terms of Use
                                </Link>{" "}
@@ -296,13 +296,13 @@ export class Login extends Component {
                                <Col md={6}>
                                  <Link className='btn btn-social btn-md btn-google form-control'>
                                    <i className='fa fa-google' />
-                                   Sign in with Google
+                                   Sign up with Google
                                  </Link>
                                </Col>
                                <Col md={6}>
                                  <Link className='btn btn-social btn-md btn-facebook form-control'>
                                    <i className='fa fa-facebook' />
-                                   Sign in with Facebook
+                                   Sign up with Facebook
                                  </Link>
                                </Col>
                              </Row>

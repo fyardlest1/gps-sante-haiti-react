@@ -7,10 +7,11 @@ import HospitalInfo from "./HospitalInfoComponent";
 import Contact from "./ContactComponent";
 import Login from './SigninInComponent';
 import Footer from "./Footer";
+import PasswordReset from './PasswordResetComponent';
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { actions } from "react-redux-form";
-import { addComment, fetchHospitals } from "../redux/ActionCreators";
+import { addComment, fetchHospitals, fetchComments, fetchPromotions } from "../redux/ActionCreators";
 
 const mapStateToProps = state => {
   return {
@@ -26,11 +27,15 @@ const mapDispatchToProps = {
     addComment(hospitalId, rating, author, text),
   fetchHospitals: () => (fetchHospitals()),
   resetFeedbackForm: () => (actions.reset('feedbackForm')),
+  fetchComments: () => (fetchComments()),
+  fetchPromotions: () => (fetchPromotions())
 };
 
 class Main extends Component {
   componentDidMount() {
     this.props.fetchHospitals();
+    this.props.fetchComments();
+    this.props.fetchPromotions();
   }
 
   render() {
@@ -45,9 +50,9 @@ class Main extends Component {
             }
             hospitalsLoading={this.props.hospitals.isLoading}
             hospitalsErrMess={this.props.hospitals.errMess}
-            promotion={
-              this.props.promotions.filter((promotion) => promotion.featured)[0]
-            }
+            promotion={this.props.promotions.promotions.filter(promotion => promotion.featured)[0]}
+            promotionLoading={this.props.promotions.isLoading}
+            promotionErrMess={this.props.promotions.errMess}
             partner={
               this.props.partners.filter((partner) => partner.featured)[0]
             }
@@ -81,9 +86,8 @@ class Main extends Component {
           }
           isLoading={this.props.hospitals.isLoading}
           errMess={this.props.hospitals.errMess}
-          comments={this.props.comments.filter(
-            (comment) => comment.hospitalId === +match.params.hospitalId
-          )}
+          comments={this.props.comments.comments.filter(comment => comment.hospitalId === +match.params.hospitalId)}
+          commentsErrMess={this.props.comments.errMess}
           addComment={this.props.addComment}
         />
       );
@@ -107,7 +111,7 @@ class Main extends Component {
           />
           <Route exact path='/contactus' render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
           <Route exact path='/login' component={Login} />
-          {/* <Route path='/resetpassword' component={PasswordReset} /> */}
+          <Route path='/resetpassword' component={PasswordReset} />
           <Redirect to='/home' />
         </Switch>
         <Footer />

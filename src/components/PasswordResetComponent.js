@@ -1,8 +1,25 @@
 import React from 'react';
+import { Col, Breadcrumb, BreadcrumbItem, Button, Row } from "reactstrap";
+import { Control, LocalForm, Errors } from "react-redux-form";
+import { Link } from "react-router-dom";
+
+const validEmail = val => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
 function PasswordReset() {
     return (
-        <div className="container" id="resetSection">
+        <React.Fragment>
+            <div className="container">
+                <div className='row'>
+                    <div className='col'>
+                        <Breadcrumb>
+                            <BreadcrumbItem>
+                                <Link to='/home'>Home</Link>
+                            </BreadcrumbItem>
+                            <BreadcrumbItem active>Reset Password</BreadcrumbItem>
+                        </Breadcrumb>
+                    </div>
+                </div>
+                <div id="resetSection">
             <div className="row">
                 <div className="col-lg-8 mx-auto py-3">
                 <div className="card">
@@ -25,8 +42,9 @@ function PasswordReset() {
                 </div>
                 </div>
             </div>
+            </div>
         </div>
-
+        </React.Fragment>
     )
 }
 

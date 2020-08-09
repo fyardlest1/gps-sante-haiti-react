@@ -9,6 +9,7 @@ import {
   CardBody, CardImg, CardTitle, CardText, Button
 } from "reactstrap";
 import { Loading } from "./LoadingComponent";
+import { baseUrl } from '../shared/baseUrl';
 
 // Rendering Card in the home page
 function RenderCard({ item, isLoading, errMess }) {
@@ -21,7 +22,7 @@ function RenderCard({ item, isLoading, errMess }) {
 
   return (
     <Card>
-      <CardImg src={item.image} alt={item.name} />
+      <CardImg src={baseUrl + item.image} alt={item.name} />
       <CardBody>
         <CardTitle>{item.name}</CardTitle>
         <CardText>{item.description}</CardText>
@@ -245,7 +246,10 @@ const Home = (props) => {
             />
           </div>
           <div className='col-md m-1'>
-            <RenderCard item={props.promotion} />
+            <RenderCard 
+              item={props.promotion} 
+              isLoading={props.promotionLoading}
+              errMess={props.promotionErrMess} />
           </div>
           <div className='col-md m-1'>
             <RenderCard item={props.partner} />

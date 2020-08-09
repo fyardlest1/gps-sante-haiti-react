@@ -17,6 +17,7 @@ import {
 import { Control, LocalForm, Errors } from "react-redux-form";
 import { Link } from "react-router-dom";
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -26,7 +27,7 @@ function RenderHospital({hospital}) {
     return (
         <div className='col-md-5 m-1'>
             <Card>
-                <CardImg top src={hospital.image} alt={hospital.name} />
+                <CardImg top src={baseUrl + hospital.image} alt={hospital.name} />
                 <CardBody>
                     <CardText>{hospital.description}</CardText>
                 </CardBody>

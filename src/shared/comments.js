@@ -2,7 +2,7 @@ export const COMMENTS =
 [
     {
         id: 0,
-        campsiteId: 0,
+        hospitalId: 0,
         rating: 5, 
         text: "They took good care of me!",
         author: "Tinus Lorvaldes",
@@ -10,7 +10,7 @@ export const COMMENTS =
     },
     {
         id: 1,
-        campsiteId: 0,
+        hospitalId: 0,
         rating: 4, 
         text: "The campground was beautiful, but the bugs could bite sometimes.",
         author: "Brennen Ech",
@@ -18,7 +18,7 @@ export const COMMENTS =
     },
     {
         id: 2,
-        campsiteId: 0,
+        hospitalId: 0,
         rating: 5, 
         text: "I caught a world-record-breaking trout here on my last visit.",
         author: "McKenzie Sebastian",
@@ -26,7 +26,7 @@ export const COMMENTS =
     },
     {
         id: 3,
-        campsiteId: 0,
+        hospitalId: 0,
         rating: 5, 
         text: "A wonderful place to reconnect with nature.",
         author: "Jordan Runn",
@@ -34,7 +34,7 @@ export const COMMENTS =
     },
     {
         id: 4,
-        campsiteId: 0,
+        hospitalId: 0,
         rating: 4, 
         text: "The stars at night were a revelation!",
         author: "Ann Dabramov",
@@ -42,7 +42,7 @@ export const COMMENTS =
     },
     {
         id: 5,
-        campsiteId: 1,
+        hospitalId: 1,
         rating: 4, 
         text: "The campground was beautiful, but the bugs could bite sometimes.",
         author: "Brennen Ech",
@@ -50,7 +50,7 @@ export const COMMENTS =
     },
     {
         id: 6,
-        campsiteId: 1,
+        hospitalId: 1,
         rating: 5, 
         text: "I caught a world-record-breaking trout here on my last visit.",
         author: "McKenzie Sebastian",
@@ -58,7 +58,7 @@ export const COMMENTS =
     },
     {
         id: 7,
-        campsiteId: 1,
+        hospitalId: 1,
         rating: 5, 
         text: "A wonderful place to reconnect with nature.",
         author: "Jordan Runn",
@@ -66,7 +66,7 @@ export const COMMENTS =
     },
     {
         id: 8,
-        campsiteId: 1,
+        hospitalId: 1,
         rating: 4, 
         text: "The stars at night were a revelation!",
         author: "Ann Dabramov",
@@ -74,7 +74,7 @@ export const COMMENTS =
     },
     {
         id: 9,
-        campsiteId: 1,
+        hospitalId: 1,
         rating: 5, 
         text: "What a magnificent view!",
         author: "Tinus Lorvaldes",
@@ -82,7 +82,7 @@ export const COMMENTS =
     },
     {
         id: 10,
-        campsiteId: 2,
+        hospitalId: 2,
         rating: 5, 
         text: "I caught a world-record-breaking trout here on my last visit.",
         author: "McKenzie Sebastian",
@@ -90,7 +90,7 @@ export const COMMENTS =
     },
     {
         id: 11,
-        campsiteId: 2,
+        hospitalId: 2,
         rating: 5, 
         text: "A wonderful place to reconnect with nature.",
         author: "Jordan Runn",
@@ -98,7 +98,7 @@ export const COMMENTS =
     },
     {
         id: 12,
-        campsiteId: 2,
+        hospitalId: 2,
         rating: 4, 
         text: "The stars at night were a revelation!",
         author: "Ann Dabramov",
@@ -106,7 +106,7 @@ export const COMMENTS =
     },
     {
         id: 13,
-        campsiteId: 2,
+        hospitalId: 2,
         rating: 5, 
         text: "What a magnificent view!",
         author: "Tinus Lorvaldes",
@@ -114,7 +114,7 @@ export const COMMENTS =
     },
     {
         id: 14,
-        campsiteId: 2,
+        hospitalId: 2,
         rating: 4, 
         text: "The campground was beautiful, but the bugs could bite sometimes.",
         author: "Brennen Ech",
@@ -122,7 +122,7 @@ export const COMMENTS =
     },
     {
         id: 15,
-        campsiteId: 3,
+        hospitalId: 3,
         rating: 5, 
         text: "A wonderful place to reconnect with nature.",
         author: "Jordan Runn",
@@ -130,7 +130,7 @@ export const COMMENTS =
     },
     {
         id: 16,
-        campsiteId: 3,
+        hospitalId: 3,
         rating: 4, 
         text: "The stars at night were a revelation!",
         author: "Ann Dabramov",
@@ -138,7 +138,7 @@ export const COMMENTS =
     },
     {
         id: 17,
-        campsiteId: 3,
+        hospitalId: 3,
         rating: 5, 
         text: "What a magnificent view!",
         author: "Tinus Lorvaldes",
@@ -146,7 +146,7 @@ export const COMMENTS =
     },
     {
         id: 18,
-        campsiteId: 3,
+        hospitalId: 3,
         rating: 4, 
         text: "The campground was beautiful, but the bugs could bite sometimes.",
         author: "Brennen Ech",
@@ -154,7 +154,7 @@ export const COMMENTS =
     },
     {
         id: 19,
-        campsiteId: 3,
+        hospitalId: 3,
         rating: 5, 
         text: "I caught a world-record-breaking trout here on my last visit.",
         author: "McKenzie Sebastian",

@@ -1,7 +1,7 @@
 export const PARTNERS = [
          {
            id: 0,
-           name: "",
+           name: "Let's take care of the world",
            image: "/assets/images/portrait3.jpg",
            featured: false,
            description:
