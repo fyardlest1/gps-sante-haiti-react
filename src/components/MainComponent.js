@@ -16,7 +16,10 @@ import {
   fetchHospitals,
   fetchComments,
   fetchPromotions,
+  fetchPartners,
+  postFeedback,
 } from "../redux/ActionCreators";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 const mapStateToProps = (state) => {
   return {
@@ -34,6 +37,8 @@ const mapDispatchToProps = {
   resetFeedbackForm: () => actions.reset("feedbackForm"),
   fetchComments: () => fetchComments(),
   fetchPromotions: () => fetchPromotions(),
+  fetchPartners: () => fetchPartners(),
+  postFeedback: (feedback) => postFeedback(feedback),
 };
 
 class Main extends Component {
@@ -41,6 +46,8 @@ class Main extends Component {
     this.props.fetchHospitals();
     this.props.fetchComments();
     this.props.fetchPromotions();
+    this.props.fetchPartners();
+
   }
 
   render() {
@@ -61,7 +68,13 @@ class Main extends Component {
           }
           promotionLoading={this.props.promotions.isLoading}
           promotionErrMess={this.props.promotions.errMess}
-          partner={this.props.partners.filter((partner) => partner.featured)[0]}
+          partner={
+            this.props.partners.partners.filter(
+              (partner) => partner.featured
+            )[0]
+          }
+          partnerLoading={this.props.partners.isLoading}
+          partnerErrMess={this.props.partners.errMess}
         />
       );
     };
@@ -105,7 +118,10 @@ class Main extends Component {
             exact
             path='/contactus'
             render={() => (
-              <Contact resetFeedbackForm={this.props.resetFeedbackForm} />
+              <Contact
+                resetFeedbackForm={this.props.resetFeedbackForm}
+                postFeedback={this.props.postFeedback}
+              />
             )}
           />
           <Route exact path='/login' component={Login} />

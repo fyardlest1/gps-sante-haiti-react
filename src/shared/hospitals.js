@@ -15,7 +15,7 @@ export const HOSPITALS = [
            elevation: 877,
            featured: false,
            description:
-             "Spend a few sunny days and starry nights beneath a canopy of old-growth firs at this enchanting spot by the Chrome River.",
+             "Spend a few sunny days and starry nights beneath a canopy of old-growth firs.",
          },
          {
            id: 2,
@@ -24,7 +24,7 @@ export const HOSPITALS = [
            elevation: 2901,
            featured: false,
            description:
-             "Let NuCamp be your guide to this off-the-beaten-path, hike-in-only campground.",
+             "Let US be your guide to this off-the-beaten-path, hike-in-only healthy.",
          },
          {
            id: 3,
@@ -33,6 +33,6 @@ export const HOSPITALS = [
            elevation: 42,
            featured: true,
            description:
-             "You'll never want to leave this hidden gem, deep within the lush Redux Woods.",
+             "You'll never want to leave this hidden gem.",
          },
        ];

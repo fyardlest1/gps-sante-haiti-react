@@ -31,29 +31,6 @@ function RenderCard({ item, isLoading, errMess }) {
   );
 }
 
-// Export the HomeFoot (export name)
-// function HomeFoot(props) {
-//   return (
-//     <div className='container'>
-//       <div className='row'>
-//         <div className='col-md m-1'>
-//           <RenderCard
-//             item={props.hospital}
-//             isLoading={props.hospitalsLoading}
-//             errMess={props.hospitalsErrMess}
-//           />
-//         </div>
-//         <div className='col-md m-1'>
-//           <RenderCard item={props.promotion} />
-//         </div>
-//         <div className='col-md m-1'>
-//           <RenderCard item={props.partner} />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
 
 const items = [
   {
@@ -252,7 +229,10 @@ const Home = (props) => {
               errMess={props.promotionErrMess} />
           </div>
           <div className='col-md m-1'>
-            <RenderCard item={props.partner} />
+            <RenderCard
+              item={props.partner}
+              isLoading={props.partnerLoading}
+              errMess={props.partnerErrMess} />
           </div>
         </div>
       </div>
